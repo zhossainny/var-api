@@ -1,16 +1,12 @@
-# File: Dockerfile
+# Stage 1: Build using Maven Wrapper
+FROM maven:3.9.6-eclipse-temurin-19 AS build
+WORKDIR /app
+COPY . .
+RUN ./mvnw clean package -DskipTests
 
-# Use Java 19 JDK base image
+# Stage 2: Run the built jar
 FROM eclipse-temurin:19-jdk-alpine
-
-# Set working directory
-WORKDIR /var-api
-
-# Copy the built jar into the container
-COPY target/var-api-1.0.0.jar var-api.jar
-
-# Expose the port Spring Boot runs on
+WORKDIR /app
+COPY --from=build /app/target/var-api-1.0.0.jar app.jar
 EXPOSE 8080
-
-# Start the application
-ENTRYPOINT ["java", "-jar", "var-api.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
