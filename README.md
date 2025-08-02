@@ -29,7 +29,17 @@ VaR = Math.abs(pnlList.get(index));
 
 
 ##  Running Tests
-## ✅ How to Run
+## Download code and Run (Without IntelliJ)
+```bash
+git clone https://github.com/zhossainny/var-api.git
+cd var-api
+./mvnw spring-boot:run
+```
+The app starts at: `http://localhost:8080`
+to run test ./mvnw test
+
+
+## ✅ How to Run (With IntelliJ)
 
 ### Requirements
 - Java 19+
