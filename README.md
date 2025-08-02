@@ -88,7 +88,7 @@ docker stop <container_id>
 
 Visit in browser:
 ```
-http://localhost:8080/swagger-ui.html
+http://localhost:8080/swagger-ui/index.html
 ```
 
 ### Sample Input: Single Trade
