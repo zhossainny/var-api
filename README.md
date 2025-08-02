@@ -1,12 +1,12 @@
-# 📉 VaR Calculator REST API
+# VaR Calculator REST API
 
 A Spring Boot application for calculating **Value at Risk (VaR)** using historical PnL data — supports both single trades and portfolios. Implements clean OOP design with full Swagger support and validation.
 
 ---
-## 🧪 Assumptions
+## Assumptions
 
-- ✅ This project focuses solely on computing **historical VaR**, which does not require high-performance infrastructure. The goal is to demonstrate quality of delivery, clean architecture, and usability.
-- ✅ Clients should be able to run the solution out-of-the-box with no setup beyond executing the Maven Wrapper.
+- This project focuses solely on computing **historical VaR**, which does not require high-performance infrastructure. The goal is to demonstrate quality of delivery, clean architecture, and usability.
+- Clients should be able to run the solution out-of-the-box with no setup beyond executing the Maven Wrapper.
 - ⚠️ This solution is **not** designed for computing VaR at institutional scale (e.g., entire books at a bank or hedge fund). Those would require nightly batch pipelines or distributed compute frameworks. For example:
   > At one bank, historical VaR was computed for ~500,000 swap trades, each priced and sensitivity-bumped over multiple scenarios. This required ~3 hours on multicore infrastructure — ideally handled today via grid computing.
 
@@ -40,7 +40,7 @@ cd var-api
 The app starts at: `http://localhost:8080/swagger-ui/index.html
 
 
-## ✅ How to Run (With IntelliJ)
+## How to Run (With IntelliJ)
 
 ### Requirements
 - Java 19+ 
