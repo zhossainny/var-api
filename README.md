@@ -35,7 +35,7 @@ git clone https://github.com/zhossainny/var-api.git
 cd var-api
 ./mvnw spring-boot:run
 ```
-The app starts at: `http://localhost:8080`
+The app starts at: `http://localhost:8080/swagger-ui/index.html)
 to run test ./mvnw test
 
 
@@ -52,7 +52,7 @@ chmod +x mvnw     # (Linux/macOS only)
 ./mvnw spring-boot:run
 ```
 
-The app starts at: `http://localhost:8080`
+The app starts at: `http://localhost:8080/swagger-ui/index.html`
 
 ---
 ---
