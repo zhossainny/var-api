@@ -29,7 +29,7 @@ VaR = Math.abs(pnlList.get(index));
 
 
 ##  Running Tests
-- Deployed as a free service (Might be down or delayed start for the demo)
+- Deployed as a free service (Might be down or delayed -  up to 5 mins to start, UNRELIABLE)
 https://var-api-avm.onrender.com/swagger-ui/index.html
 ## Download code and Run & Test (Without IntelliJ)
 ```bash
