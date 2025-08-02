@@ -51,7 +51,7 @@ The app starts at: `http://localhost:8080/swagger-ui/index.html
 java -jar target/var-api-1.0.0.jar
 
 ```
-### Launch the App
+### Otherwise Launch the App by simply 
 ```bash
 cd var-api/       # Navigate into the project directory
 chmod +x mvnw     # (Linux/macOS only)
