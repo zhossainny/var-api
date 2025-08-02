@@ -29,12 +29,13 @@ VaR = Math.abs(pnlList.get(index));
 
 
 ##  Running Tests
-## Download code and Run (Without IntelliJ)
+## Download code and Run & Test (Without IntelliJ)
 ```bash
 git clone https://github.com/zhossainny/var-api.git
 cd var-api
 ./mvnw spring-boot:run
-./mvnw test 
+./mvnw test
+./mvnw -Dtest=VarCalculationServiceTest test
 ```
 The app starts at: `http://localhost:8080/swagger-ui/index.html
 
@@ -73,7 +74,7 @@ docker run -d -p 8080:8080 zhossainny/var-api:latest
 
 This runs the container in the background and exposes the app on:
 ```
-http://localhost:8080/swagger-ui.html
+http://localhost:8080/swagger-ui/index.html
 ```
 
 To stop the container:
