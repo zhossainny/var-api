@@ -43,9 +43,9 @@ The app starts at: `http://localhost:8080/swagger-ui/index.html
 ## How to Run (With IntelliJ)
 
 ### Requirements
-- Java 19+ 
+- Java 17+  
 - No Maven installation needed (uses Maven Wrapper)
-- If java 19 does NOT exist then build and run using following command after changing <java.version>11</java.version> in POM.xml
+- If java 17 does NOT exist then build and run using following command after changing <java.version>11</java.version> in POM.xml
 ```bash
 ./mvnw clean package
 java -jar target/var-api-1.0.0.jar
