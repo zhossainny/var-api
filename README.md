@@ -34,9 +34,9 @@ VaR = Math.abs(pnlList.get(index));
 git clone https://github.com/zhossainny/var-api.git
 cd var-api
 ./mvnw spring-boot:run
+./mvnw test 
 ```
-The app starts at: `http://localhost:8080/swagger-ui/index.html)
-to run test ./mvnw test
+The app starts at: `http://localhost:8080/swagger-ui/index.html
 
 
 ## ✅ How to Run (With IntelliJ)
@@ -52,7 +52,7 @@ chmod +x mvnw     # (Linux/macOS only)
 ./mvnw spring-boot:run
 ```
 
-The app starts at: `http://localhost:8080/swagger-ui/index.html`
+The app starts at: `http://localhost:8080/swagger-ui/index.html
 
 ---
 ---
