@@ -28,8 +28,8 @@ VaR = Math.abs(pnlList.get(index));
 
 
 
-##  Running Tests
-- Deployed as a free service (Might be down or delayed -  up to 5 mins to start, UNRELIABLE)
+##  Running App (Multiple options)
+- Deployed as a free docker service (Might be down or long delay startup time)
 https://var-api-avm.onrender.com/swagger-ui/index.html
 ## Download code and Run & Test (Without IntelliJ)
 ```bash
@@ -53,7 +53,7 @@ The app starts at: `http://localhost:8080/swagger-ui/index.html
 java -jar target/var-api-1.0.0.jar
 
 ```
-### Otherwise Launch the App by simply 
+### Otherwise Launch the App by simply (unzip project and then ..)
 ```bash
 cd var-api/       # Navigate into the project directory
 chmod +x mvnw     # (Linux/macOS only)
@@ -71,7 +71,7 @@ You can run this app directly using Docker without installing Java or Maven.
 
 ### 🔹 Step 1: Pull from Docker Hub
 ```bash
-docker pull zhossainny/var-api:latest
+docker pull zhossainny/var-api:latest # uploaded image for the demo
 ```
 
 ### 🔹 Step 2: Run the container
@@ -90,7 +90,7 @@ docker ps                       # Get container ID
 docker stop <container_id>
 ```
 
-### 🔹 Steo to Build your own local image if needed (Dockerfile provided)
+### 🔹 Step to Build your own local image if needed (Dockerfile provided)
 ```bash
 docker build -t var-api .
 docker run -d -p 8080:8080 --name var-api var-api
@@ -207,7 +207,7 @@ java -jar target/var-api-1.0.0.jar
 
 ---
 
-## Project Structure
+## Project Structure (Typical spring boot Rest structure)
 
 ```
 src/
@@ -227,7 +227,7 @@ src/
 VarCalculationService
  ├─ calculateTradeVar(TradeRequest)
  └─ calculatePortfolioVar(PortfolioRequest)
-       └─ aligns PnLs over shared period
+       └─ pnls is they main array of data 
 
 TradeRequest → contains TradePnl + confidenceLevel
 PortfolioRequest → List<TradePnl> + confidenceLevel
