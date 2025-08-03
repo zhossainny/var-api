@@ -1,14 +1,14 @@
 # VaR Calculator REST API
 
-A Spring Boot application for calculating **Value at Risk (VaR)** using historical PnL data — supports both single trades and portfolios. Implements clean OOP design with full Swagger support and validation.
+A Spring Boot application for calculating **Value at Risk (VaR)** using historical PnL data — supports both single trades and portfolios. Implements clean OOP design with full Swagger support, Docker support and validation.
 
 ---
 ## Assumptions
 
-- This project focuses solely on computing **historical VaR**, which does not require high-performance infrastructure. The goal is to demonstrate quality of delivery, clean architecture, and usability.
-- Clients should be able to run the solution out-of-the-box with no setup beyond executing the Maven Wrapper.
+- This project focuses solely on computing **historical VaR**, which does not require high-performance infrastructure. The goal is to demonstrate quality of delivery, clean architecture, intuitiveness and usability.
+- Clients should be able to run the solution out-of-the-box with no setup beyond executing the provided Maven Wrapper or pulling uploaded docker image.
 - ⚠️ This solution is **not** designed for computing VaR at institutional scale (e.g., entire books at a bank or hedge fund). Those would require nightly batch pipelines or distributed compute frameworks. For example:
-  > At one bank, historical VaR was computed for ~500,000 swap trades, each priced and sensitivity-bumped over multiple scenarios. This required ~3 hours on multicore infrastructure — ideally handled today via grid computing.
+  > At one of my previous bank, historical VaR was computed for ~500,000 swap trades, each priced and sensitivity-bumped over multiple scenarios. This required ~3 hours on multicore infrastructure — ideally handled today via grid computing.
 
 ---
 ---
@@ -22,7 +22,7 @@ Historical VaR estimates the potential loss in a portfolio by sorting actual his
 ### Formula (Java Logic)
 ```java
 Collections.sort(pnlList);
-int index = (int) Math.floor((1 - confidenceLevel) * pnlList.size());
+int index = (int) Math.floor((1 - confidenceLevel) * pnlList.size()); // or pnlList.size()-1 
 VaR = Math.abs(pnlList.get(index));
 ```
 
@@ -35,9 +35,9 @@ https://var-api-avm.onrender.com/swagger-ui/index.html
 ```bash
 git clone https://github.com/zhossainny/var-api.git
 cd var-api
-./mvnw spring-boot:run
-./mvnw test
-./mvnw -Dtest=VarCalculationServiceTest test
+./mvnw spring-boot:run  # now go to the url. note: in cmd promt: mvnw instead of ./mvnw
+./mvnw test # only if you want to run test
+./mvnw -Dtest=VarCalculationServiceTest test # only if you want to run particular test
 ```
 The app starts at: `http://localhost:8080/swagger-ui/index.html
 
@@ -47,7 +47,7 @@ The app starts at: `http://localhost:8080/swagger-ui/index.html
 ### Requirements
 - Java 17+  
 - No Maven installation needed (uses Maven Wrapper)
-- If java 17 does NOT exist then build and run using following command after changing <java.version>11</java.version> in POM.xml
+- If java 17 does NOT exist then build and run using following command after changing to any version i.e: <java.version>11</java.version> in POM.xml
 ```bash
 ./mvnw clean package
 java -jar target/var-api-1.0.0.jar
@@ -88,6 +88,15 @@ To stop the container:
 ```bash
 docker ps                       # Get container ID
 docker stop <container_id>
+```
+
+### 🔹 Steo to Build your own local image if needed (Dockerfile provided)
+```bash
+docker build -t var-api .
+docker run -d -p 8080:8080 --name var-api var-api
+# go to the url provided or check curl
+docker stop var-api
+
 ```
 
 ---
