@@ -8,7 +8,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Service class for Value at Risk (VaR) calculations.
+ * <p>
+ * Provides methods to calculate VaR for a single trade or an entire portfolio.
+ * For portfolios, each trade can have a different length of PnL series.
+ * The calculation aligns all PnL series to the most recent <b>minLength</b> days
+ * (where <b>minLength</b> is the shortest PnL list among all trades).
+ * For each day in this aligned window, the service sums the PnL across all trades
+ * to create the portfolio PnL series used for VaR calculation.
+ */
 @Service
 public class VarCalculationService {
 

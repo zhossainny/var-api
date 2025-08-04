@@ -7,7 +7,10 @@ import org.quantdev.var.service.VarCalculationService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+/**
+ * REST controller for VaR calculation endpoints.
+ * Provides APIs to calculate Value at Risk for trades and portfolios.
+ */
 @RestController
 @RequestMapping("/api/var")
 public class VarController {
